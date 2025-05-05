@@ -5,6 +5,8 @@
              Title="{Binding Monkey.Name}"
              xmlns:viewmodel="clr-namespace:MonkeyFinder.ViewModel"
              x:DataType="viewmodel:MonkeyDetailsViewModel">
+    <!--Shell.PresentationMode="ModalAnimated">-->
+    
     <ScrollView>
         <VerticalStackLayout>
             <Grid ColumnDefinitions="*,Auto,*"
