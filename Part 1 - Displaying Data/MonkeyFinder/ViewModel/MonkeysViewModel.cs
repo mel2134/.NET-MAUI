@@ -1,16 +1,18 @@
 ﻿using MonkeyFinder.Services;
-
 namespace MonkeyFinder.ViewModel;
 
 public partial class MonkeysViewModel : BaseViewModel
 {
     MonkeyService monkeyService;
     public ObservableCollection<Monkey> Monkeys { get; } = new();
+    //public Command GetMonkeysCommand { get; }
     public MonkeysViewModel(MonkeyService monkeyService)
     {
         Title = "Monkey Finder";
         this.monkeyService = monkeyService;
+        //GetMonkeysCommand = new Command(async () => await GetMonkeysAsync());
     }
+    [RelayCommand]
     async Task GetMonkeysAsync()
     {
         if (IsBusy) return;

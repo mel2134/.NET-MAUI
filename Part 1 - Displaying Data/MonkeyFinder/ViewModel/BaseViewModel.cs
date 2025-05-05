@@ -1,4 +1,5 @@
 ﻿namespace MonkeyFinder.ViewModel;
+using CommunityToolkit.Mvvm;
 //[INotifyPropertyChanged]
 public partial class BaseViewModel:ObservableObject/* : INotifyPropertyChanged*/
 {
@@ -7,7 +8,7 @@ public partial class BaseViewModel:ObservableObject/* : INotifyPropertyChanged*/
         //SetProperty(ref isBusy,true);
     }
     [ObservableProperty]
-   // [AlsoNotifyChangeFor(nameof(IsNotBusy))]
+    //[AlsoNotifyChangeFor(nameof(IsNotBusy))]
     bool isBusy;
     [ObservableProperty]
     string title;
