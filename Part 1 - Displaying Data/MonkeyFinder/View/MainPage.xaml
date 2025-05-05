@@ -10,10 +10,24 @@
           ColumnSpacing="5"
           RowDefinitions="*,Auto"
           RowSpacing="0">
-        <CollectionView BackgroundColor="Transparent"
+        <RefreshView Grid.ColumnSpan="2"
+                     Command="{Binding GetMonkeysCommand}"
+                     IsRefreshing="{Binding IsRefreshing}">
+            <CollectionView BackgroundColor="Transparent"
                         Grid.ColumnSpan="2"
                         ItemsSource="{Binding Monkeys}"
-                        SelectionMode="None">
+                        SelectionMode="None"
+                        EmptyView="Empty">
+                <!--<CollectionView.EmptyView>
+                    <StackLayout VerticalOptions="Center"
+                                 HorizontalOptions="Center"
+                                 WidthRequest="200"
+                                 HeightRequest="200"/>
+                    <Image Source="nodata.png"
+                           HorizontalOptions="CenterAndExpand"
+                           VerticalOptions="CenterAndExpand"
+                           Aspect="AspectFill"/>
+                </CollectionView.EmptyView>-->
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:Monkey">
                     <Grid Padding="10">
@@ -46,6 +60,7 @@
             </CollectionView.ItemTemplate>
             
         </CollectionView>
+        </RefreshView>
         <Button Text="Get Monkeys"
                 Grid.Row="1"
                 Margin="8"

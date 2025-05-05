@@ -18,6 +18,8 @@ public partial class MonkeysViewModel : BaseViewModel
         //GetMonkeysCommand = new Command(async () => await GetMonkeysAsync());
 
     }
+    [ObservableProperty]
+    bool isRefreshing;
     [RelayCommand]
     async Task GetClosestMonkeyAsync()
     {
@@ -51,6 +53,7 @@ public partial class MonkeysViewModel : BaseViewModel
             {"Monkey",monkey}
         });
     }
+
     [RelayCommand]
     async Task GetMonkeysAsync()
     {
@@ -78,6 +81,7 @@ public partial class MonkeysViewModel : BaseViewModel
         finally
         {
             IsBusy = false;
+            IsRefreshing = false;
         }
     }
 }
