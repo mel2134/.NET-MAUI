@@ -16,30 +16,30 @@
             <CollectionView BackgroundColor="Transparent"
                         Grid.ColumnSpan="2"
                         ItemsSource="{Binding Monkeys}"
-                        SelectionMode="None"
-                        EmptyView="Empty">
-                <!--<CollectionView.EmptyView>
+                        SelectionMode="None">
+                <CollectionView.EmptyView>
                     <StackLayout VerticalOptions="Center"
                                  HorizontalOptions="Center"
                                  WidthRequest="200"
-                                 HeightRequest="200"/>
-                    <Image Source="nodata.png"
+                                 HeightRequest="200">
+                        <Image Source="nodata.png"
                            HorizontalOptions="CenterAndExpand"
                            VerticalOptions="CenterAndExpand"
                            Aspect="AspectFill"/>
-                </CollectionView.EmptyView>-->
-            <CollectionView.ItemTemplate>
+                    </StackLayout>
+                </CollectionView.EmptyView>
+                <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:Monkey">
                     <Grid Padding="10">
-                        <Frame HeightRequest="125"
-                               Padding="0">
-                            <!--Style="{StaticResource CardView}">-->
-                            <Frame.GestureRecognizers>
+                            <Border HeightRequest="125"
+                               Padding="0"
+                                Style="{StaticResource CardView}">
+                                <Border.GestureRecognizers>
                                 <TapGestureRecognizer CommandParameter="{Binding .}"
                                                       Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MonkeysViewModel}}, x:DataType=viewmodel:MonkeysViewModel, Path=GoToDetailsCommand}">
                                     
                                 </TapGestureRecognizer>
-                            </Frame.GestureRecognizers>
+                            </Border.GestureRecognizers>
                             <Grid Padding="0"
                                   ColumnDefinitions="125,*">
                                 <Image Aspect="AspectFill"
@@ -54,7 +54,7 @@
 
                                 </VerticalStackLayout>
                             </Grid>
-                        </Frame>
+                        </Border>
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
